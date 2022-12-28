@@ -15,6 +15,7 @@ import java.util.concurrent.Callable;
 public class App implements Callable<Integer> {
     @Parameters(index = "0", description = "path to first file")
     private String filepath1;
+
     @Parameters(index = "1", description = "path to second file")
     private String filepath2;
 
