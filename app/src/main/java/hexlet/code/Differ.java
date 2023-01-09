@@ -3,7 +3,7 @@ package hexlet.code;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
+
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -21,29 +21,28 @@ public class Differ {
 
         String content1 = Files.readString(path1);
         String content2 = Files.readString(path2);
-        Map<String, Object> fileValue1 = objectMap.readValue(content1, new TypeReference<Map<String, Object>>() {});
-        Map<String, Object> fileValue2 = objectMap2.readValue(content2, new TypeReference<Map<String, Object>>() {});
+        Map<String, Object> map1 = objectMap.readValue(content1, new TypeReference<Map<String, Object>>() {});
+        Map<String, Object> map2 = objectMap2.readValue(content2, new TypeReference<Map<String, Object>>() {});
 
-        Map<String, Object> merge = new HashMap();
-        merge.putAll(fileValue1);
-        merge.putAll(fileValue2); // Вот здесь будет задача - правильно отсортировать пару для этого придется видимо поочерёдно добавлять
-        String acc = "{\n";
+        Map<String, Object> merge = Stream.of(map1, map2)
+                .flatMap(m -> m.entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        String acc = "{";
         for (String key : merge.keySet()) {
-            var valueMerge = merge.get(key);
-            var value1 = fileValue1.get(key);
-            var value2 = fileValue2.get(key);
-            if (!fileValue1.containsKey(key)) {
-                acc += String.format("+ %s: %s", key, valueMerge);
+            if (!map1.get(key).equals(map2.get(key))) {
+                String exitCode = String.format("  %s: %s\n", key, merge.get(key));
+                acc += exitCode;
             }
-            else if (!fileValue2.containsKey(key)) {
-                acc += String.format("- %s: %s", key, valueMerge);
+            else if (!map2.containsKey(key)) {
+                String exitCode1 = String.format("- %s: %s\n", key, merge.get(key));
+                acc += exitCode1;
             }
-            else if (!(value1.equals(value2))) {
-                acc += String.format("- %s: %s", key, value1);
-                acc += String.format("+ %s: %s", key, value2);
+            else if (!map1.containsKey(key)) {
+                String exitCode2 = String.format("+ %s: %s\n", key, merge.get(key));
+                acc += exitCode2;
             }
         }
-        System.out.println("\n}");
+        acc += "}";
         return acc;
     }
 }
