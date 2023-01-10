@@ -36,8 +36,8 @@ public class Differ {
                     acc += exitCode1;
                 }
                 else if (!map2.containsKey(key)) {
-                    String exitCode2 = String.format("- %s: %s\n", key, map1.get(key));
-                    acc += exitCode2;
+                String exitCode2 = String.format("- %s: %s\n", key, map1.get(key));
+                acc += exitCode2;
                 }
                 else if (map1.get(key).equals(map2.get(key))) {
                     String exitCode3 = String.format("  %s: %s\n", key, merge.get(key));
