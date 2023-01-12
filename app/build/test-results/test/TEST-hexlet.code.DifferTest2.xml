@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="hexlet.code.DifferTest2" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-12T10:00:01" hostname="DESKTOP-A18RDR4" time="2.03">
+<testsuite name="hexlet.code.DifferTest2" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-12T16:25:01" hostname="DESKTOP-A18RDR4" time="0.726">
   <properties/>
-  <testcase name="testAbsolutePath()" classname="hexlet.code.DifferTest2" time="1.988"/>
-  <testcase name="testRelativePath()" classname="hexlet.code.DifferTest2" time="0.015"/>
-  <testcase name="testDefunctPath()" classname="hexlet.code.DifferTest2" time="0.012"/>
-  <testcase name="testIfFileEmpty()" classname="hexlet.code.DifferTest2" time="0.008"/>
+  <testcase name="testAbsolutePath()" classname="hexlet.code.DifferTest2" time="0.712"/>
+  <testcase name="testRelativePath()" classname="hexlet.code.DifferTest2" time="0.004"/>
+  <testcase name="testDefunctPath()" classname="hexlet.code.DifferTest2" time="0.005"/>
+  <testcase name="testIfFileEmpty()" classname="hexlet.code.DifferTest2" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
