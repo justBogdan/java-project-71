@@ -12,7 +12,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Differ {
     public static String generate(String p1, String p2) throws Exception {
-
         ObjectMapper objectMap = new ObjectMapper();
         ObjectMapper objectMap2 = new ObjectMapper();
         Path path1 = Paths.get(p1).toAbsolutePath().normalize();
