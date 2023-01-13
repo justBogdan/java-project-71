@@ -5,3 +5,6 @@ run-dist:
 
 build:
     gradle build
+make:
+    gradle jacocoTestReport
+    gradle jacocoTestCoverageVerification
