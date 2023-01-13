@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Differ {
     public static String generate(String p1, String p2) throws Exception {
-        List<Map<String, Object>> maps = formatFactory.createMaps(p1, p2);
+        List<Map<String, Object>> maps = FormatFactory.createMaps(p1, p2);
         var map1 = maps.get(0);
         var map2 = maps.get(1);
         var mainMap = maps.get(2);

@@ -43,14 +43,14 @@ public class DifferTest2 {
      void testRelativePathYAML() throws Exception {
         var f = "./src/test/resources/YAMLFiles/testFile1.yaml";
         var s = "./src/test/resources/YAMLFiles/testFile2.yaml";
-            var answer = Differ.generate(f, s);
-            var param2 = "- CustomerName: Joe";
-            var param3 = "+ CustomerName: Victoria";
-            var param4 = "+ unitPrice: 100";
-            var param5 = "- unitPrice: 12";
-            assertEquals(true, answer.contains(param2));
-            assertEquals(true, answer.contains(param3));
-            assertEquals(true, answer.contains(param4));
-            assertEquals(true, answer.contains(param5));
+        var answer = Differ.generate(f, s);
+        var param2 = "- CustomerName: Joe";
+        var param3 = "+ CustomerName: Victoria";
+        var param4 = "+ unitPrice: 100";
+        var param5 = "- unitPrice: 12";
+        assertEquals(true, answer.contains(param2));
+        assertEquals(true, answer.contains(param3));
+        assertEquals(true, answer.contains(param4));
+        assertEquals(true, answer.contains(param5));
     }
 }

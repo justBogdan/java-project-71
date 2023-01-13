@@ -1,20 +1,16 @@
 package hexlet.code;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-public class formatFactory {
+public class FormatFactory {
     private static ObjectMapper mapper1;
 
     private static ObjectMapper mapper2;
-    public static List<Map<String, Object>> createMaps (final String p1, final String p2) throws IOException {
+    public static List<Map<String, Object>> createMaps(final String p1, final String p2) throws IOException {
         if (p1.endsWith("yaml") && p2.endsWith("yaml")) {
             mapper1 = new ObjectMapper(new YAMLFactory());
             mapper2 = new ObjectMapper(new YAMLFactory());
@@ -32,3 +28,4 @@ public class formatFactory {
         return List.of(map1, map2, mainMap);
     }
 }
+
