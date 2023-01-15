@@ -1,10 +1,11 @@
 .PHONY:build
-
+.PHONY:gradle
+GRADLEW ?= ./gradlew
 run-dist:
 	build/install/app/bin/app -h
 
 build:
-    gradle build
+	$(GRADLEW) build --info
 report:
-    gradle jacocoTestReport
-    gradle jacocoTestCoverageVerification
+	$(GRADLEW) jacocoTestReport
+	$(GRADLEW) jacocoTestCoverageVerification
