@@ -24,5 +24,5 @@
             CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
             JACOCO_SOURCE_PATH: src/main/java
           with:
-            coverageCommand: .
+            coverageCommand:
             coverageLocations: ${{github.workspace}}/build/customJacocoReportDir/test/jacocoTestReport.xml:jacoco
