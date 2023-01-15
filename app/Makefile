@@ -1,11 +1,10 @@
 .PHONY:build
-.PHONY:gradle
+.DEFAULT_GOAL:= build-run
 GRADLEW ?= ./gradlew
 run-dist:
 	build/install/app/bin/app -h
 
 build:
-	$(GRADLEW) build --info
+	make -C app install
 report:
-	$(GRADLEW) jacocoTestReport
-	$(GRADLEW) jacocoTestCoverageVerification
+	make -C app report
