@@ -10,20 +10,17 @@ public class Differ {
         var mainMap = maps.get(2);
         String acc = "{\n";
         for (String key : mainMap.keySet()) {
+            var value = null == mainMap.get(key) ? "null" : map1.get(key);
+            var value2 = null == map1.get(key) ? "null" : map2.get(key);
             if (!map1.containsKey(key)) {
-                String exitCode1 = String.format("+ %s: %s\n", key, map2.get(key));
-                acc += exitCode1;
+                acc += formatter.formatGenerate(key, value2, "+", App.format);
             } else if (!map2.containsKey(key)) {
-                String exitCode2 = String.format("- %s: %s\n", key, map1.get(key));
-                acc += exitCode2;
+                acc += formatter.formatGenerate(key, value, "-", App.format);
             } else if (map1.get(key).equals(map2.get(key))) {
-                String exitCode3 = String.format("  %s: %s\n", key, mainMap.get(key));
-                acc += exitCode3;
+                acc += formatter.formatGenerate(key, value, " ", App.format);
             } else if (!map1.get(key).equals(map2.get(key))) {
-                String prop1 = String.format("- %s: %s\n", key, map1.get(key));
-                String prop2 = String.format("+ %s: %s\n", key, map2.get(key));
-                acc += prop1;
-                acc += prop2;
+                acc += formatter.formatGenerate(key, value, "-", App.format);
+                acc += formatter.formatGenerate(key, value2, "+", App.format);
             }
         }
         acc += "}";

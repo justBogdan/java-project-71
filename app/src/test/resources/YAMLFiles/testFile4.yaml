@@ -1,0 +1,19 @@
+setting1: Another Value
+setting2: 300
+setting3: false
+key1: value2
+key2: value3
+numbers1:
+  - 10
+  - 9
+  - 8
+numbers2:
+  - 1
+  - 2
+  - 3
+id: 45
+default: null
+chars1:
+  - o
+  - f
+  - d
