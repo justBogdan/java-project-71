@@ -13,14 +13,14 @@ public class Differ {
             var value = map1.get(key);
             var value2 = map2.get(key);
             if (!map1.containsKey(key)) {
-                acc += formatter.formatGenerate(key, value2, "+", App.format);
+                acc += Formatter.formatGenerate(key, value2, "+", App.format);
             } else if (!map2.containsKey(key)) {
-                acc += formatter.formatGenerate(key, value, "-", App.format);
+                acc += Formatter.formatGenerate(key, value, "-", App.format);
             } else if (map1.get(key).equals(map2.get(key))) {
-                acc += formatter.formatGenerate(key, value, " ", App.format);
+                acc += Formatter.formatGenerate(key, value, " ", App.format);
             } else if (!map1.get(key).equals(map2.get(key))) {
-                acc += formatter.formatGenerate(key, value, "-", App.format);
-                acc += formatter.formatGenerate(key, value2, "+", App.format);
+                acc += Formatter.formatGenerate(key, value, "-", App.format);
+                acc += Formatter.formatGenerate(key, value2, "+", App.format);
             }
         }
         acc += "}";

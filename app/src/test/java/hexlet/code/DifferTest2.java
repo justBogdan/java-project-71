@@ -57,7 +57,7 @@ public class DifferTest2 {
     void testIfKeyIsObj() throws  Exception {
         var f = "./src/test/resources/YAMLFiles/testFile3.yaml";
         var s = "./src/test/resources/YAMLFiles/testFile4.yaml";
-        var answer = Differ.generate(f,s);
+        var answer = Differ.generate(f, s);
         var param0 = "  - setting1: Some Value";
         var param1 = "  + setting1: Another Value";
         var param2 = "  - numbers: [1, 2, 3, 4]";
