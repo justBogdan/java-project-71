@@ -10,8 +10,8 @@ public class Differ {
         var mainMap = maps.get(2);
         String acc = "{\n";
         for (String key : mainMap.keySet()) {
-            var value = null == mainMap.get(key) ? "null" : map1.get(key);
-            var value2 = null == map1.get(key) ? "null" : map2.get(key);
+            var value = map1.get(key);
+            var value2 = map2.get(key);
             if (!map1.containsKey(key)) {
                 acc += formatter.formatGenerate(key, value2, "+", App.format);
             } else if (!map2.containsKey(key)) {

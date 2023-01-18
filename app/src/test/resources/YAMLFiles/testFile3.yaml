@@ -13,7 +13,7 @@ numbers2:
   - 4
   - 5
 id: 45
-default: null
+default: zero
 checked: false
 chars1:
   - a
